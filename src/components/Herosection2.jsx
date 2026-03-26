@@ -3,18 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-/*
-  ┌─────────────────────────────────────────────────────┐
-  │  JJ Scrapbuyers — Navbar + Hero Section             │
-  │  Stack: Next.js + Tailwind CSS                      │
-  │                                                     │
-  │  Setup:                                             │
-  │  1. Add fonts to app/layout.js (see bottom of file) │
-  │  2. Add to tailwind.config.js  (see bottom of file) │
-  │  3. Place hero image at public/hero-scrap.jpg       │
-  └─────────────────────────────────────────────────────┘
-*/
-
 const NAV_LINKS = [
   "Home",
   "About",
@@ -53,9 +41,26 @@ const STATS = [
   { n: "15+", l: "Years" },
 ];
 
+// 4 slider images — update paths to match your /public folder
+const SLIDES = [
+  { src: "/hero10.jpg", alt: "Scrap metal yard" },
+  { src: "/hero21.jpg",  alt: "Metal collection" },
+  { src: "/hero23.jpg",  alt: "Industrial scrap" },
+  { src: "/hero24.jpg",  alt: "Copper & aluminium" },
+];
+
 export default function HeroSection() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
   const revealRef = useRef(null);
+
+  /* ── Auto-advance every 3s ── */
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c + 1) % SLIDES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   /* Scroll-triggered reveal */
   useEffect(() => {
@@ -101,9 +106,17 @@ export default function HeroSection() {
         .font-fraunces { font-family: 'Fraunces', Georgia, serif; }
         .font-outfit    { font-family: 'Outfit', sans-serif; }
 
-        /* Ken Burns on hero image */
-        @keyframes kb { from { transform: scale(1); } to { transform: scale(1.06) translateX(-1%); } }
-        .hero-img { animation: kb 22s ease-in-out infinite alternate; }
+        /* Ken Burns */
+        @keyframes kb { from { transform: scale(1); } to { transform: scale(1.08) translateX(-1%); } }
+
+        /* All slides stacked — active crossfades in quickly */
+        .slide-item {
+          position: absolute; inset: 0;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          animation: kb 20s ease-in-out infinite alternate;
+        }
+        .slide-item.active { opacity: 1; z-index: 2; }
 
         /* Underline hover effect for nav */
         .nav-link::after {
@@ -114,47 +127,55 @@ export default function HeroSection() {
         .nav-link:hover::after { width: 100%; }
         .nav-link:hover { color: #8b004b; }
 
+        /* Slider dots */
+        .slider-dot {
+          width: 18px; height: 2px;
+          background: rgba(255,255,255,0.3);
+          transition: all 0.4s ease;
+          cursor: pointer; border: none; padding: 0;
+        }
+        .slider-dot.active { width: 32px; background: #8b004b; }
 
         /* ── METALS MARQUEE ── */
-.metals-strip {
-  position: relative;
-  background: #8b004b;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 10px 0;
-}
+        .metals-strip {
+          position: relative;
+          background: #8b004b;
+          overflow: hidden;
+          white-space: nowrap;
+          padding: 10px 0;
+        }
 
-.metals-track {
-  display: inline-flex;
-  width: max-content;
-  animation: marquee 25s linear infinite;
-}
+        .metals-track {
+          display: inline-flex;
+          width: max-content;
+          animation: marquee 25s linear infinite;
+        }
 
-.metal-item {
-  font-family: 'Outfit', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(242,240,230,0.8);
-  padding: 0 24px;
-}
+        .metal-item {
+          font-family: 'Outfit', sans-serif;
+          font-size: 10px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: rgba(242,240,230,0.8);
+          padding: 0 24px;
+        }
 
-.metal-sep {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: rgba(242,240,230,0.4);
-  margin: 0 10px;
-}
+        .metal-sep {
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background: rgba(242,240,230,0.4);
+          margin: 0 10px;
+        }
 
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
 
-.metals-strip:hover .metals-track {
-  animation-play-state: paused;
-}
+        .metals-strip:hover .metals-track {
+          animation-play-state: paused;
+        }
       `}</style>
 
       <div ref={revealRef} className="font-outfit bg-[#f2f0e6]">
@@ -236,8 +257,6 @@ export default function HeroSection() {
             <div className="relative flex flex-col justify-between px-10 py-19 h-full border-r border-[#8b004b]/10 overflow-hidden">
               {/* Vertical accent bar */}
               <div className="absolute left-0 top-[20%] bottom-[20%] w-[2px] bg-gradient-to-b from-transparent via-[#8b004b]/50 to-transparent" />
-
-              
 
               <div>
                 {/* Eyebrow */}
@@ -333,33 +352,32 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* ── RIGHT: Hero image panel ── */}
-            <div className="relative overflow-hidden bg-[#1a0010] min-h-[400px] lg:min-h-0 flex flex-col justify-end">
-              {/* Hero image — place at /public/hero-scrap.jpg */}
-              {/* <div
-                className="hero-img absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/hero-scrap.jpg')" }}
-              /> */}
+            {/* ── RIGHT: Hero image SLIDER panel ── */}
+            <div
+              className="relative overflow-hidden bg-[#1a0010] min-h-[400px] lg:min-h-0 flex flex-col justify-end"
+            >
+              {/* All slides always rendered — crossfade via opacity */}
+              {SLIDES.map((slide, i) => (
+                <div
+                  key={slide.src}
+                  className={`slide-item ${i === current ? "active" : ""}`}
+                >
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    priority={i === 0}
+                    className="object-cover"
+                  />
+                </div>
+              ))}
 
-              <Image
-                src="/hero10.jpg"
-                alt="Scrap metal"
-                fill
-                priority
-                className="object-cover hero-img"
-              />
-
-              {/* Fallback gradient when no image */}
-
-              {/* Overlays */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-[#1a0010]/95 via-[#1a0010]/40 to-transparent z-[1]" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1a0010]/40 to-transparent z-[1]" />
-              <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_top_right,rgba(139,0,75,0.2),transparent_70%)] z-[1]" /> */}
-              <div className="absolute inset-0 bg-black/65 z-[1]" />
+              {/* Overlay — same as original */}
+              <div className="absolute inset-0 bg-black/65 z-[3]" />
 
               {/* Location badge */}
               <div
-                className="absolute top-5 right-5 z-[3] flex items-center gap-2 bg-[#1a0010]/50 backdrop-blur-sm border border-white/10 px-3 py-2"
+                className="absolute top-5 right-5 z-[5] flex items-center gap-2 bg-[#1a0010]/50 backdrop-blur-sm border border-white/10 px-3 py-2"
                 data-reveal="right"
                 data-d="2"
               >
@@ -369,8 +387,8 @@ export default function HeroSection() {
                 </span>
               </div>
 
-              {/* Caption block */}
-              <div className="relative z-[2] px-10 pb-10 pt-6">
+              {/* Caption block — identical to original, dots added after chips */}
+              <div className="relative z-[4] px-10 pb-10 pt-6">
                 <div
                   className="flex items-center gap-2 mb-3.5"
                   data-reveal
@@ -411,7 +429,7 @@ export default function HeroSection() {
                 </p>
 
                 {/* Service chips */}
-                <div className="flex flex-wrap gap-2" data-reveal data-d="5">
+                <div className="flex flex-wrap gap-2 mb-5" data-reveal data-d="5">
                   {CHIPS.map((c) => (
                     <span
                       key={c}
@@ -421,10 +439,23 @@ export default function HeroSection() {
                     </span>
                   ))}
                 </div>
+
+                {/* ── Slider dots (only new addition) ── */}
+                <div className="flex items-center gap-2">
+                  {SLIDES.map((_, i) => (
+                    <button
+                      key={i}
+                      className={`slider-dot ${i === current ? "active" : ""}`}
+                      onClick={() => setCurrent(i)}
+                      aria-label={`Slide ${i + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
+
         {/* ── METALS MARQUEE ── */}
         <div className="metals-strip">
           <div className="metals-track">
@@ -435,9 +466,8 @@ export default function HeroSection() {
               </span>
             ))}
           </div>
-          
         </div>
-        
+
       </div>
     </>
   );

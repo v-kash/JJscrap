@@ -95,50 +95,46 @@ export default function AboutPreview() {
         [data-d="4"] { transition-delay: 0.42s; }
         [data-d="5"] { transition-delay: 0.54s; }
 
-        /* ── Stats strip: flex row always, wraps on mobile ── */
+        /* ── Stats strip ── */
         .stats-strip {
           display: flex;
           flex-wrap: wrap;
           border-top: 1px solid rgba(242,240,230,0.08);
         }
 
-        /* ── Stat cells ── */
         .stat-cell {
-          /* Mobile: 2 per row */
           flex: 0 0 50%;
           max-width: 50%;
-          padding: 16px 16px;
+          padding: 14px 16px;
           border-right: 1px solid rgba(242,240,230,0.08);
           border-bottom: 1px solid rgba(242,240,230,0.08);
           cursor: default;
-          position: relative;
           box-sizing: border-box;
         }
-        /* Right column — no right border on mobile */
-        .stats-strip .stat-cell:nth-child(even) {
+
+        /* Mobile: right column — no right border */
+        .stats-strip .stat-cell:nth-child(2n) {
           border-right: none;
         }
-        /* Bottom row — no bottom border on mobile */
-        .stats-strip .stat-cell:nth-last-child(-n+2) {
+        /* Mobile: bottom row — no bottom border */
+        .stats-strip .stat-cell:nth-child(3),
+        .stats-strip .stat-cell:nth-child(4) {
           border-bottom: none;
         }
 
         .stat-cell:hover .stat-num { color: #8b004b !important; }
 
-        /* Desktop: single row of 4 — restore original layout exactly */
+        /* Desktop: single row of 4 */
         @media (min-width: 1024px) {
           .stat-cell {
             flex: 1;
             max-width: none;
             padding: 20px 24px;
             border-right: 1px solid rgba(242,240,230,0.08);
-            border-bottom: none;
+            border-bottom: none !important;
           }
-          .stats-strip .stat-cell:nth-child(even) {
+          .stats-strip .stat-cell:nth-child(2n) {
             border-right: 1px solid rgba(242,240,230,0.08);
-          }
-          .stats-strip .stat-cell:nth-last-child(-n+2) {
-            border-bottom: none;
           }
           .stats-strip .stat-cell:first-child { padding-left: 44px; }
           .stats-strip .stat-cell:last-child  { border-right: none; padding-right: 44px; }
@@ -149,9 +145,8 @@ export default function AboutPreview() {
           display: flex;
           align-items: flex-start;
           gap: 10px;
-          padding: 9px 0;
+          padding: 7px 0;
         }
-        .value-row:last-child { border-bottom: none; }
 
         /* ── About link ── */
         .about-link {
@@ -191,10 +186,10 @@ export default function AboutPreview() {
 
           {/* ══ THE RECTANGLE BOX ══ */}
           <div
-            ref={boxRef}
-            className="relative overflow-hidden"
-            style={{ minHeight: "420px" }}
-          >
+  ref={boxRef}
+  className="relative overflow-hidden"
+  style={{ minHeight: "clamp(300px, 60vw, 430px)" }}
+>
             {/* BG parallax layer */}
             <div
               ref={bgRef}
@@ -239,19 +234,16 @@ export default function AboutPreview() {
             <div
               ref={revealRef}
               className="relative flex flex-col justify-between h-full"
-              style={{ zIndex: 2, minHeight: "420px" }}
+              style={{ zIndex: 2 }}
             >
-              {/* TOP — headline + para + values
-                  Mobile:  stacked (padding 28px)
-                  Desktop: 2-col grid (padding 44px)
-              */}
-              <div className="p-7 sm:p-10 lg:p-11">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-8 lg:gap-16">
+              {/* TOP — headline + para + values */}
+              <div className="p-6 sm:p-9 lg:p-11">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-6 lg:gap-16">
 
                   {/* Left — headline */}
                   <div>
                     <h2
-                      className="font-fraunces text-[28px] sm:text-[34px] lg:text-[42px] font-light leading-[1.15]"
+                      className="font-fraunces text-[26px] sm:text-[32px] lg:text-[42px] font-light leading-[1.15]"
                       style={{ color: "#f2f0e6" }}
                       data-reveal data-d="1"
                     >
@@ -269,7 +261,7 @@ export default function AboutPreview() {
                         width: "36px",
                         height: "1px",
                         background: "rgba(242,240,230,0.35)",
-                        margin: "20px 0 0",
+                        margin: "16px 0 0",
                       }}
                       data-reveal data-d="2"
                     />
@@ -278,7 +270,7 @@ export default function AboutPreview() {
                   {/* Right — para + values + link */}
                   <div className="flex flex-col justify-center">
                     <p
-                      className="font-outfit text-[13px] font-light leading-[1.9] mb-6"
+                      className="font-outfit text-[13px] font-light leading-[1.9] mb-5"
                       style={{ color: "rgba(242,240,230,0.85)" }}
                       data-reveal data-d="3"
                     >
@@ -310,7 +302,7 @@ export default function AboutPreview() {
                       ))}
                     </div>
 
-                    <div className="mt-8" data-reveal data-d="5">
+                    <div className="mt-7" data-reveal data-d="5">
                       <Link href="/about" className="about-link">
                         Our full story
                         <span style={{ position: "relative", display: "inline-block", width: "22px", height: "1px", background: "currentColor" }}>
@@ -329,24 +321,18 @@ export default function AboutPreview() {
                 </div>
               </div>
 
-              {/* BOTTOM — stats strip
-                  2×2 grid on mobile → 4-col row on sm+
-                  Negative margins bleed to box edges
-              */}
-              <div
-                className="stats-strip mt-4"
-                data-reveal data-d="4"
-              >
+              {/* BOTTOM — stats strip */}
+              <div className="stats-strip" data-reveal data-d="4">
                 {STATS.map((s) => (
                   <div key={s.l} className="stat-cell">
                     <div
-                      className="stat-num font-fraunces text-[26px] sm:text-[30px] font-light leading-none mb-1"
+                      className="stat-num font-fraunces text-[24px] sm:text-[28px] lg:text-[30px] font-light leading-none mb-1"
                       style={{ color: "#f2f0e6", transition: "color 0.35s ease" }}
                     >
                       {s.n}
                     </div>
                     <div
-                      className="font-outfit text-[8px] sm:text-[8.5px] tracking-[0.14em] sm:tracking-[0.16em] uppercase"
+                      className="font-outfit text-[8px] sm:text-[8.5px] tracking-[0.14em] uppercase"
                       style={{ color: "rgba(242,240,230,0.55)" }}
                     >
                       {s.l}

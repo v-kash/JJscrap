@@ -8,7 +8,7 @@ import { handleSmoothNav } from "@/utils/smoothScroll";
 
 const NAV_LINKS = [
   { label: "Home", href: "/#home" },
-  { label: "About", href: "/about" }, // ✅ page
+  { label: "About", href: "/about" },
   { label: "Services", href: "/#services" },
   { label: "Process", href: "/#process" },
   { label: "Testimonials", href: "/#testimonials" },
@@ -49,7 +49,7 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Desktop */}
+          {/* Desktop Links */}
           <ul className="hidden md:flex items-center gap-7 list-none">
             {NAV_LINKS.map((l) => (
               <li key={l.label}>
@@ -64,37 +64,51 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Right */}
+          {/* Right Side */}
           <div className="flex items-center gap-3">
-            <a
-              href="https://wa.me/919789075963"
-              target="_blank"
-              className="hidden md:inline text-[10px] tracking-[0.12em] uppercase text-[#8b004b] border-b border-[#8b004b]"
-            >
-              WhatsApp
-            </a>
-
+            {/* Desktop: WhatsApp + Get Quote */}
+            
             <Link
               href="/#contact"
-              className="text-[10px] font-semibold tracking-[0.16em] uppercase px-5 py-2.5 bg-[#8b004b] text-[#f2f0e6] hover:bg-[#5a0030] inline-block"
+              className="text-[10px] font-semibold tracking-[0.16em] uppercase px-5 py-2.5 bg-[#8b004b] text-[#f2f0e6] hover:bg-[#5a0030] hidden md:inline-block"
             >
-              Get Quote
+              Contact Us
             </Link>
 
-            {/* Mobile */}
-            <button
+            {/* Mobile: Home + About icon buttons */}
+            <div className="flex md:hidden items-center gap-3">
+              <Link
+                href="/"
+                aria-label="Home"
+                className="text-[#9a8585] hover:text-[#8b004b] transition-colors"
+              >
+                Home
+              </Link>
+
+              <Link
+                href="/about"
+                aria-label="About"
+                className="text-[#9a8585] hover:text-[#8b004b] transition-colors"
+              >
+                About
+              </Link>
+            </div>
+
+            {/* Hamburger */}
+            {/* <button
               className="flex md:hidden flex-col gap-[5px]"
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
             >
               <span className="w-[22px] h-[1.5px] bg-[#1a0010]" />
               <span className="w-[22px] h-[1.5px] bg-[#1a0010]" />
               <span className="w-[22px] h-[1.5px] bg-[#1a0010]" />
-            </button>
+            </button> */}
           </div>
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu Dropdown */}
       {mobileOpen && (
         <div className="fixed top-16 left-0 right-0 z-40 bg-[#f2f0e6] px-8 py-6 flex flex-col gap-5">
           {NAV_LINKS.map((l) => (
