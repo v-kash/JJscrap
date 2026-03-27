@@ -258,8 +258,9 @@ export default function HeroSection() {
 
         {/* ════════════════════════════════════
             HERO  (compact — not full-screen)
+            
         ════════════════════════════════════ */}
-        <section id="home" className="pt-16 min-h-[calc(100vh-4rem)] ">
+        <section id="home" className="pt-8 lg:pt-16 min-h-[calc(100vh-4rem)] ">
           <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] h-full">
             {/* ── LEFT: Cream content panel ── */}
             <div className="relative flex flex-col justify-between px-10 py-19 h-full border-r border-[#8b004b]/10 overflow-hidden">
