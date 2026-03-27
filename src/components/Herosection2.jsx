@@ -20,6 +20,10 @@ const METALS = [
   "Stainless Steel",
   "Cast Iron",
   "MS Scrap",
+  "AC",
+  "AC Parts",
+  "Electrical Parts",
+  "Batteries",
   "Iron",
   "Steel",
   "Copper",
@@ -28,6 +32,10 @@ const METALS = [
   "Stainless Steel",
   "Cast Iron",
   "MS Scrap",
+  "AC",
+  "AC Parts",
+  "Electrical Parts",
+  "Batteries",
 ];
 const CHIPS = [
   "Factory Clearance",
@@ -44,9 +52,9 @@ const STATS = [
 // 4 slider images — update paths to match your /public folder
 const SLIDES = [
   { src: "/hero10.jpg", alt: "Scrap metal yard" },
-  { src: "/hero21.jpg",  alt: "Metal collection" },
-  { src: "/hero23.jpg",  alt: "Industrial scrap" },
-  { src: "/hero24.jpg",  alt: "Copper & aluminium" },
+  { src: "/hero21.jpg", alt: "Metal collection" },
+  { src: "/hero23.jpg", alt: "Industrial scrap" },
+  { src: "/hero24.jpg", alt: "Copper & aluminium" },
 ];
 
 export default function HeroSection() {
@@ -353,9 +361,7 @@ export default function HeroSection() {
             </div>
 
             {/* ── RIGHT: Hero image SLIDER panel ── */}
-            <div
-              className="relative overflow-hidden bg-[#1a0010] min-h-[400px] lg:min-h-0 flex flex-col justify-end"
-            >
+            <div className="relative overflow-hidden bg-[#1a0010] min-h-[400px] lg:min-h-0 flex flex-col justify-end">
               {/* All slides always rendered — crossfade via opacity */}
               {SLIDES.map((slide, i) => (
                 <div
@@ -429,7 +435,11 @@ export default function HeroSection() {
                 </p>
 
                 {/* Service chips */}
-                <div className="flex flex-wrap gap-2 mb-5" data-reveal data-d="5">
+                <div
+                  className="flex flex-wrap gap-2 mb-5"
+                  data-reveal
+                  data-d="5"
+                >
                   {CHIPS.map((c) => (
                     <span
                       key={c}
@@ -467,7 +477,6 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
-
       </div>
     </>
   );

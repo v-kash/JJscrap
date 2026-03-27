@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Fraunces, Outfit } from "next/font/google";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CallButton from "@/components/Phonecall";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <WhatsAppButton />
+        <CallButton />
       </body>
     </html>
   );

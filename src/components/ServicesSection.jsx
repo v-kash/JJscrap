@@ -40,6 +40,7 @@ export default function PremiumTabsInsane() {
   const [active, setActive] = useState(0);
   const prevIndexRef = useRef(0);
   const revealRef = useRef(null);
+  const intervalRef = useRef(null);
 
   prevIndexRef.current = active;
 
@@ -55,12 +56,31 @@ export default function PremiumTabsInsane() {
             io.unobserve(e.target);
           }
         }),
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
 
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+
+  // Auto-rotate tabs every 5 seconds
+  const startInterval = () => {
+    intervalRef.current = setInterval(() => {
+      setActive((prev) => (prev + 1) % SERVICES.length);
+    }, 5000);
+  };
+
+  useEffect(() => {
+    startInterval();
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  // Reset timer on manual tab click
+  const handleTabClick = (i) => {
+    setActive(i);
+    clearInterval(intervalRef.current);
+    startInterval();
+  };
 
   return (
     <>
@@ -90,7 +110,6 @@ export default function PremiumTabsInsane() {
         className="bg-[#f2f0e6] py-12 sm:py-14 lg:py-16 border-t border-[#8b004b]/10"
       >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          
           {/* LEFT */}
           <div>
             <p
@@ -121,7 +140,7 @@ export default function PremiumTabsInsane() {
                 return (
                   <button
                     key={i}
-                    onClick={() => setActive(i)}
+                    onClick={() => handleTabClick(i)}
                     className={`relative flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] transition-colors ${
                       active === i
                         ? "text-[#8b004b]"
@@ -212,7 +231,7 @@ export default function PremiumTabsInsane() {
                           />
                         </motion.div>
                       </motion.div>
-                    )
+                    ),
                 )}
               </AnimatePresence>
 
