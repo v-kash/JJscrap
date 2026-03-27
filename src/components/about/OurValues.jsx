@@ -20,7 +20,7 @@ const VALUES = [
     ),
     title: "Honesty First",
     desc: "We quote what we pay. No bait-and-switch pricing, no post-weighing surprises. Every transaction is transparent from the first call to the final payment.",
-    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
+    img: "/handshake.jpg",
     imgAlt: "Handshake representing honesty",
   },
   {

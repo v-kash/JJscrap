@@ -67,7 +67,6 @@ export default function Footer() {
 
       <footer className="font-outfit bg-[#48092a]">
         <div className="max-w-7xl mx-auto px-6 pt-14 pb-0">
-
           {/* ── DESKTOP (untouched) ── */}
           <div className="hidden lg:grid lg:grid-cols-[1.6fr_1.2fr_1fr_1fr] gap-6">
             {/* BRAND */}
@@ -140,13 +139,28 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
                   <Phone size={14} className="text-[#c22f7b]" />
-                  <p className="text-[12px]" style={{ color: "rgba(242,240,230,0.55)" }}>
+                  <p
+                    className="text-[12px]"
+                    style={{ color: "rgba(242,240,230,0.55)" }}
+                  >
                     +91 97890 75963
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
+                  <Phone size={14} className="text-[#c22f7b]" />
+                  <p
+                    className="text-[12px]"
+                    style={{ color: "rgba(242,240,230,0.55)" }}
+                  >
+                    +91 94441 00307
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
                   <Mail size={14} className="text-[#c22f7b]" />
-                  <p className="text-[12px]" style={{ color: "rgba(242,240,230,0.55)" }}>
+                  <p
+                    className="text-[12px]"
+                    style={{ color: "rgba(242,240,230,0.55)" }}
+                  >
                     jjscrapbuyers@gmail.com
                   </p>
                 </div>
@@ -156,7 +170,6 @@ export default function Footer() {
 
           {/* ── MOBILE ── */}
           <div className="flex flex-col gap-6 lg:hidden">
-
             {/* Brand */}
             <div className="mobile-section">
               <Image src="/finalfooter.png" alt="Logo" width={90} height={54} />
@@ -188,20 +201,21 @@ export default function Footer() {
 
             {/* Find Us + Contact — side by side on mobile */}
             <div className="mobile-section grid grid-cols-2 gap-6">
-
               {/* Find Us */}
               <div>
                 <span className="footer-col-label">Find Us</span>
                 <address className="not-italic space-y-2">
                   <div className="flex items-start gap-2">
-                    <MapPin size={13} className="mt-[3px] text-[#c22f7b] flex-shrink-0" />
+                    <MapPin
+                      size={13}
+                      className="mt-[3px] text-[#c22f7b] flex-shrink-0"
+                    />
                     <p
                       className="text-[11px] leading-[1.8]"
                       style={{ color: "rgba(242,240,230,0.55)" }}
                     >
-                      No 120, Rajajinagar Main Road,
-                      Madipakkam, Chennai,
-                      Tamil Nadu – 600091
+                      No 120, Rajajinagar Main Road, Madipakkam, Chennai, Tamil
+                      Nadu – 600091
                     </p>
                   </div>
                   <a
@@ -229,8 +243,20 @@ export default function Footer() {
                       +91 97890 75963
                     </p>
                   </div>
+                  <div className="flex items-center gap-2">
+                    <Phone size={13} className="text-[#c22f7b] flex-shrink-0" />
+                    <p
+                      className="text-[11px]"
+                      style={{ color: "rgba(242,240,230,0.55)" }}
+                    >
+                      +91 94441 00307
+                    </p>
+                  </div>
                   <div className="flex items-start gap-2">
-                    <Mail size={13} className="text-[#c22f7b] flex-shrink-0 mt-[2px]" />
+                    <Mail
+                      size={13}
+                      className="text-[#c22f7b] flex-shrink-0 mt-[2px]"
+                    />
                     <p
                       className="text-[11px] break-all"
                       style={{ color: "rgba(242,240,230,0.55)" }}
@@ -240,17 +266,18 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 
           {/* ── BOTTOM BAR (shared) ── */}
           <div className="footer-bar mt-10">
-            <span className="text-[12px]" style={{ color: "rgba(242,240,230,0.55)" }}>
+            <span
+              className="text-[12px]"
+              style={{ color: "rgba(242,240,230,0.55)" }}
+            >
               © {new Date().getFullYear()} JJ Scrapbuyers. All rights reserved.
             </span>
           </div>
-
         </div>
       </footer>
     </>

@@ -216,7 +216,7 @@ export default function AboutCTA() {
                 className="cta-btn-primary"
               >
                 <Phone size={14} strokeWidth={1.5} />
-                <span>{isMobile ? "Call Now" : "Get Quote"}</span>
+                <span>{isMobile ? "Call Now" : "Contact Us"}</span>
               </a>
               <a href="https://wa.me/919789075963" className="cta-btn-ghost">
                 <span className="ghost-arrow" />

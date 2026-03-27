@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-const MAP_IMAGE = "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200&q=80";
+const MAP_IMAGE = "/marinabeach2.jpg";
 
 const AREAS = [
   "Madipakkam",    "Velachery",       "Pallikaranai",  "Perungudi",
@@ -111,20 +111,23 @@ export default function ServiceAreas() {
         }
         .map-panel:hover img { transform:scale(1.05); }
 
-        /* Deep vignette */
         .map-vignette {
-          position:absolute; inset:0; z-index:2; pointer-events:none;
-          box-shadow:
-            inset 0   0   35px 10px rgba(26,0,16,0.80),
-            inset 0   0   80px 28px rgba(26,0,16,0.55),
-            inset 0   0  150px 50px rgba(26,0,16,0.30),
-            inset 0   0  240px 75px rgba(26,0,16,0.14);
-        }
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.25)
+  );
+  z-index: 2;
+  pointer-events: none;
+}
 
         /* Border frame */
         .map-frame {
           position:absolute; inset:0; z-index:3; pointer-events:none;
-          border:1.5px solid rgba(26,0,16,0.45);
+          border:1.5px solid rgba(26,0,16,0.1);
           box-shadow:
             0  2px 18px rgba(26,0,16,0.12),
             0  8px 40px rgba(26,0,16,0.08);
@@ -287,7 +290,7 @@ export default function ServiceAreas() {
               <div className="absolute bottom-0 left-0 right-0 z-[4] px-6 pb-5">
                 <div
                   className="font-fraunces font-light italic"
-                  style={{ fontSize: "13px", color: "rgba(242,240,230,0.70)" }}
+                  style={{ fontSize: "13px", color: "rgba(242,240,230)" }}
                 >
                   16 zones and counting.
                 </div>

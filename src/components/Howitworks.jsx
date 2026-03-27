@@ -8,7 +8,7 @@ const STEPS = [
     num: "01",
     title: "Call or WhatsApp Us",
     desc: "Share your scrap details — type, quantity, and location. We'll give you an instant price estimate with zero obligations.",
-    detail: "Available 9 AM – 7 PM, Mon–Sat",
+    detail: "Available 8 AM – 11 PM, Mon–Sun",
     accent: "Quick Response",
   },
   {
