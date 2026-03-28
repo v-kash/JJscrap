@@ -8,12 +8,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Testimonials from "@/components/MeetTheTeam";
-export const metadata = {
-  title: "JJ Scrapbuyers | Chennai's Trusted Metal Scrap Partner",
-  description:
-    "JJ Scrapbuyers is a Chennai-based company dealing in all kinds of metal scrap — Iron, Steel, Copper, Aluminium, Brass and more. Doorstep pickup, competitive pricing.",
-};
 
+ 
 
 export default function Home() {
   return (
