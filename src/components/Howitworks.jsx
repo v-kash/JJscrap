@@ -322,7 +322,12 @@ export default function HowItWorks() {
         ref={revealRef}
         className="font-outfit  bg-[#f2f0e6] border-t border-[#8b004b]/10"
         id="process"
+          aria-label="Scrap buying process in Chennai including pickup and instant payment"
       >
+
+        <p className="sr-only">
+  Learn how scrap selling works in Chennai with JJ Scrapbuyers. Our simple 3 step process includes contacting us, doorstep scrap pickup, and instant payment for iron, copper, aluminium, AC, battery and electrical scrap.
+</p>
         {/* ── TOP HEADER ── */}
         <div className="max-w-7xl mx-auto px-6 pt-16 pb-16">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
@@ -338,7 +343,9 @@ export default function HowItWorks() {
                 className="font-fraunces text-[40px] lg:text-[48px] font-light text-[#1a0010] leading-[1.1] mt-3"
                 data-reveal
                 data-d="2"
-              >
+              > <span className="sr-only">
+    How Scrap Selling Works in Chennai – JJ Scrapbuyers Process
+  </span>
                 How It
                 <em className="italic font-extralight text-[#8b004b]">
                   {" "}
@@ -453,6 +460,9 @@ export default function HowItWorks() {
         {/* ── BOTTOM CTA BAR ── */}
         <div ref={ctaRef} data-reveal style={{ transitionDelay: "0.08s" }}>
           <div className="cta-bar">
+            <a href="/about" className="sr-only">
+  About JJ Scrapbuyers Chennai scrap service
+</a>
             {/* Left text */}
             <div>
               <p className="font-fraunces text-[20px] font-light italic text-[#f2f0e6] leading-[1.3]">

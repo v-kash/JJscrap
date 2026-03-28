@@ -61,7 +61,9 @@ export default function AboutPreview() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             const delay = parseInt(e.target.dataset.d || "1") * 160 + 400;
-            setTimeout(() => { e.target.dataset.revealed = "true"; }, delay);
+            setTimeout(() => {
+              e.target.dataset.revealed = "true";
+            }, delay);
             io.unobserve(e.target);
           }
         }),
@@ -174,9 +176,15 @@ export default function AboutPreview() {
       <section
         id="about"
         className="font-outfit bg-[#f2f0e6] border-t border-[#8b004b]/10 py-12 lg:py-16"
+        aria-label="About JJ Scrapbuyers Chennai scrap buyers company with 15 years experience"
       >
+        <p className="sr-only">
+          JJ Scrapbuyers is one of the most trusted scrap buyers in Chennai with
+          over 15 years of experience in buying iron, steel, copper, aluminium,
+          AC, batteries and electrical scrap with transparent pricing and
+          doorstep pickup services.
+        </p>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
           {/* ── Eyebrow ── */}
           <div className="flex items-center gap-2.5 mb-6">
             <span className="font-outfit text-[10px] tracking-[0.30em] uppercase text-[#8b004b]">
@@ -186,10 +194,10 @@ export default function AboutPreview() {
 
           {/* ══ THE RECTANGLE BOX ══ */}
           <div
-  ref={boxRef}
-  className="relative overflow-hidden"
-  style={{ minHeight: "clamp(300px, 60vw, 430px)" }}
->
+            ref={boxRef}
+            className="relative overflow-hidden"
+            style={{ minHeight: "clamp(300px, 60vw, 430px)" }}
+          >
             {/* BG parallax layer */}
             <div
               ref={bgRef}
@@ -212,7 +220,8 @@ export default function AboutPreview() {
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "linear-gradient(135deg, #1a0010 0%, #2a000e 50%, #1a0010 100%)",
+                background:
+                  "linear-gradient(135deg, #1a0010 0%, #2a000e 50%, #1a0010 100%)",
                 opacity: 0.95,
                 willChange: "opacity",
               }}
@@ -239,19 +248,25 @@ export default function AboutPreview() {
               {/* TOP — headline + para + values */}
               <div className="p-6 sm:p-9 lg:p-11">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-6 lg:gap-16">
-
                   {/* Left — headline */}
                   <div>
                     <h2
                       className="font-fraunces text-[26px] sm:text-[32px] lg:text-[42px] font-light leading-[1.15]"
                       style={{ color: "#f2f0e6" }}
-                      data-reveal data-d="1"
+                      data-reveal
+                      data-d="1"
                     >
+                      <span className="sr-only">
+                        About JJ Scrapbuyers – Trusted Scrap Buyers in Chennai
+                      </span>
                       We don't just
                       <br />
                       buy scrap —
                       <br />
-                      <em className="italic font-extralight" style={{ color: "rgba(242,240,230,0.80)" }}>
+                      <em
+                        className="italic font-extralight"
+                        style={{ color: "rgba(242,240,230,0.80)" }}
+                      >
                         we do it right.
                       </em>
                     </h2>
@@ -263,7 +278,8 @@ export default function AboutPreview() {
                         background: "rgba(242,240,230,0.35)",
                         margin: "16px 0 0",
                       }}
-                      data-reveal data-d="2"
+                      data-reveal
+                      data-d="2"
                     />
                   </div>
 
@@ -272,12 +288,13 @@ export default function AboutPreview() {
                     <p
                       className="font-outfit text-[13px] font-light leading-[1.9] mb-5"
                       style={{ color: "rgba(242,240,230,0.85)" }}
-                      data-reveal data-d="3"
+                      data-reveal
+                      data-d="3"
                     >
-                      JJ Scrapbuyers has been Chennai's most trusted scrap partner
-                      for over 15 years. What sets us apart isn't just our prices
-                      — it's how we treat every client: with honesty, speed, and
-                      zero complications.
+                      JJ Scrapbuyers has been Chennai's most trusted scrap
+                      partner for over 15 years. What sets us apart isn't just
+                      our prices — it's how we treat every client: with honesty,
+                      speed, and zero complications.
                     </p>
 
                     <div data-reveal data-d="4">
@@ -305,15 +322,32 @@ export default function AboutPreview() {
                     <div className="mt-7" data-reveal data-d="5">
                       <Link href="/about" className="about-link">
                         Our full story
-                        <span style={{ position: "relative", display: "inline-block", width: "22px", height: "1px", background: "currentColor" }}>
-                          <span style={{
-                            position: "absolute", right: 0, top: "-3px",
-                            width: "6px", height: "6px",
-                            borderRight: "1px solid currentColor",
-                            borderTop: "1px solid currentColor",
-                            transform: "rotate(45deg)",
+                        <span
+                          style={{
+                            position: "relative",
                             display: "inline-block",
-                          }} />
+                            width: "22px",
+                            height: "1px",
+                            background: "currentColor",
+                          }}
+                        >
+                          <span
+                            style={{
+                              position: "absolute",
+                              right: 0,
+                              top: "-3px",
+                              width: "6px",
+                              height: "6px",
+                              borderRight: "1px solid currentColor",
+                              borderTop: "1px solid currentColor",
+                              transform: "rotate(45deg)",
+                              display: "inline-block",
+                            }}
+                          />
+                        </span>
+                        <span className="sr-only">
+                          Learn more about JJ Scrapbuyers Chennai scrap buying
+                          company
                         </span>
                       </Link>
                     </div>
@@ -327,7 +361,10 @@ export default function AboutPreview() {
                   <div key={s.l} className="stat-cell">
                     <div
                       className="stat-num font-fraunces text-[24px] sm:text-[28px] lg:text-[30px] font-light leading-none mb-1"
-                      style={{ color: "#f2f0e6", transition: "color 0.35s ease" }}
+                      style={{
+                        color: "#f2f0e6",
+                        transition: "color 0.35s ease",
+                      }}
                     >
                       {s.n}
                     </div>

@@ -8,10 +8,16 @@ import AboutCTA     from "@/components/about/AboutCTA";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 export const metadata = {
-  title: "About Us — JJ Scrapbuyers",
-  description: "Chennai's most trusted scrap buyer. 15+ years, 500+ clients, transparent pricing and doorstep pickup.",
+  title: "About JJ Scrapbuyers | Scrap Dealers in Chennai",
+  description:
+    "Learn about JJ Scrapbuyers – trusted scrap dealers in Chennai with 15+ years experience in buying iron, copper, aluminium, AC, battery and electrical scrap with transparent pricing.",
+  keywords: [
+    "about scrap buyers Chennai",
+    "scrap dealers Chennai",
+    "metal scrap company Chennai",
+    "trusted scrap buyers Chennai",
+  ],
 };
-
 export default function AboutPage() {
   return (
     <main>

@@ -208,12 +208,14 @@ export default function AboutHeroRust() {
         id="about-hero"
         aria-label="About JJ Scrapbuyers"
       >
+        <p className="sr-only">
+  JJ Scrapbuyers is a leading scrap buying company in Chennai dealing in iron, steel, copper, aluminium, AC, battery and electrical scrap with transparent pricing and doorstep pickup services.
+</p>
         {/* ── z0: BG image ── */}
         <div className="ar-kb absolute inset-0" style={{ zIndex: 0 }}>
           <Image
             src="/abouthero2.jpg"
-            alt="JJ Scrapbuyers scrap yard"
-            fill
+alt="JJ Scrapbuyers Chennai scrap yard metal collection and recycling"            fill
             priority
             className="object-cover"
           />
@@ -299,6 +301,9 @@ export default function AboutHeroRust() {
                 className="ar-serif  text-[#f2f0e6] leading-[1.1] font-light"
                 style={{ fontSize: "clamp(42px, 6vw, 82px)" }}
               >
+                <span className="sr-only">
+    About JJ Scrapbuyers – Scrap Buyers in Chennai with 15 Years Experience
+  </span>
                 <span
                   className={`pb-1 ${mounted ? "an-line" : "opacity-0"}`}
                   style={{ animationDelay: "0.42s" }}

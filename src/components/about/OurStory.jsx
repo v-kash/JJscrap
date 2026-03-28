@@ -87,7 +87,11 @@ export default function OurStory() {
       <section
         ref={revealRef}
         className="bg-[#f2f0e6] border-t border-[#8b004b]/10 py-16"
+         aria-label="History of JJ Scrapbuyers Chennai scrap company from 2009 to present"
       >
+        <p className="sr-only">
+  JJ Scrapbuyers started in 2009 as a small scrap buying service in Chennai and has grown into a trusted scrap dealer handling industrial, household and metal scrap including iron, copper, aluminium, AC and batteries.
+</p>
         <div className="max-w-7xl mx-auto px-8 lg:px-10">
           {/* HEADER */}
           <div
@@ -104,6 +108,9 @@ export default function OurStory() {
               </div>
 
               <h2 className="font-fraunces font-light text-[#1a0010] text-[40px] leading-tight">
+                <span className="sr-only">
+    Our Story – Scrap Buyers in Chennai Journey and Growth
+  </span>
                 How we got <em className="italic text-[#8b004b]">here.</em>
               </h2>
             </div>
@@ -128,8 +135,7 @@ export default function OurStory() {
               <div className="relative w-full h-full overflow-hidden z-[2]">
                 <Image
                   src="/hero-scrap2.jpg"
-                  alt="Scrap yard"
-                  fill
+alt="JJ Scrapbuyers Chennai scrap yard metal collection and recycling"                  fill
                   className="object-cover"
                 />
 

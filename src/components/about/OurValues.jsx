@@ -21,8 +21,7 @@ const VALUES = [
     title: "Honesty First",
     desc: "We quote what we pay. No bait-and-switch pricing, no post-weighing surprises. Every transaction is transparent from the first call to the final payment.",
     img: "/handshake.jpg",
-    imgAlt: "Handshake representing honesty",
-  },
+imgAlt: "Transparent scrap buying service in Chennai with honest pricing"  },
   {
     tag: "EFFICIENCY",
     sub: "Same-day. Every day.",
@@ -46,8 +45,7 @@ const VALUES = [
     title: "Speed as Respect",
     desc: "Your time matters. Same-day service, instant payment, and fast responses aren't perks — they're our baseline. We show up when we say we will.",
     img: "/delivery3.jpg",
-    imgAlt: "Clock representing speed and efficiency",
-  },
+imgAlt: "Fast scrap pickup and instant payment service Chennai"  },
   {
     tag: "LEGACY",
     sub: "Chennai built. Chennai proud.",
@@ -65,8 +63,7 @@ const VALUES = [
     title: "Community Roots",
     desc: "We're a Chennai business serving Chennai families and factories. Every ton we collect feeds back into the local recycling ecosystem we've built over 15 years.",
     img: "/community.jpg",
-    imgAlt: "Community and city representing local roots",
-  },
+imgAlt: "Local scrap buyers Chennai community recycling service"  },
 ];
 
 export default function OurValues() {
@@ -299,7 +296,12 @@ export default function OurValues() {
         }}
         id="values"
         className="py-16"
+         aria-label="Core values of JJ Scrapbuyers Chennai scrap buying company"
       >
+
+        <p className="sr-only">
+  JJ Scrapbuyers follows strong values of honesty, transparency and efficiency in providing scrap buying services in Chennai including iron, copper, aluminium, AC, battery and electrical scrap with doorstep pickup and instant payment.
+</p>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 40px" }}>
           {/* Header */}
           <div
@@ -316,6 +318,9 @@ export default function OurValues() {
                 <span className="vs-eyebrow-label">Our Values</span>
               </div>
               <h2 className="vs-heading" data-reveal data-d="2">
+                <span className="sr-only">
+                  Values of JJ Scrapbuyers – Trusted Scrap Buyers in Chennai
+                </span>
                 What we <em>stand for.</em>
               </h2>
             </div>

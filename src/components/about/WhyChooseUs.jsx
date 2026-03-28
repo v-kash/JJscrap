@@ -254,7 +254,10 @@ export default function WhyChooseUs() {
         }
       `}</style>
 
-      <section ref={sectionRef} className="wcu-section" id="why-us">
+      <section ref={sectionRef} className="wcu-section" id="why-us" aria-label="Why choose JJ Scrapbuyers Chennai scrap buying services">
+        <p className="sr-only">
+  JJ Scrapbuyers offers trusted scrap buying services in Chennai including iron, steel, copper, aluminium, AC, battery and electrical scrap with transparent weighing, instant payment and same-day pickup.
+</p>
         {/* ── Header ── */}
         <div className="max-w-[1280px] mx-auto px-10 py-16">
           <div
@@ -302,6 +305,9 @@ export default function WhyChooseUs() {
                 margin: 0,
               }}
             >
+              <span className="sr-only">
+                Why Choose JJ Scrapbuyers – Trusted Scrap Buyers in Chennai
+              </span>
               Six reasons clients
               <br />
               <em
@@ -347,7 +353,7 @@ export default function WhyChooseUs() {
               <img
                 className="why-card-img"
                 src={card.img}
-                alt={card.title}
+                alt={`${card.title} scrap service in Chennai by JJ Scrapbuyers`}
                 loading="lazy"
               />
 

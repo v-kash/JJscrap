@@ -51,12 +51,11 @@ const STATS = [
 
 // 4 slider images — update paths to match your /public folder
 const SLIDES = [
-  { src: "/hero10.jpg", alt: "Scrap metal yard" },
-  { src: "/hero21.jpg", alt: "Metal collection" },
-  { src: "/hero23.jpg", alt: "Industrial scrap" },
-  { src: "/hero24.jpg", alt: "Copper & aluminium" },
+  { src: "/hero10.jpg", alt: "Scrap metal yard Chennai" },
+  { src: "/hero21.jpg", alt: "Metal scrap collection Chennai" },
+  { src: "/hero23.jpg", alt: "Industrial scrap buyers Chennai" },
+  { src: "/hero24.jpg", alt: "Copper aluminium scrap Chennai" },
 ];
-
 export default function HeroSection() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [current, setCurrent] = useState(0);
@@ -262,6 +261,11 @@ export default function HeroSection() {
         ════════════════════════════════════ */}
         <section id="home" className="pt-8 lg:pt-16 min-h-[calc(100vh-4rem)] ">
           <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] h-full">
+            <p className="sr-only">
+  JJ Scrapbuyers are professional scrap buyers in Chennai dealing in iron,
+  steel, copper, aluminium, brass, AC, batteries and electrical scrap with
+  doorstep pickup and instant payment services.
+</p>
             {/* ── LEFT: Cream content panel ── */}
             <div className="relative flex flex-col justify-between px-10 py-19 h-full border-r border-[#8b004b]/10 overflow-hidden">
               {/* Vertical accent bar */}

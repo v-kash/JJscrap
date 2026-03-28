@@ -8,15 +8,21 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   axes: ["opsz"],
 });
+
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
 });
 
 export const metadata = {
-  title: "JJ Scrap Buyers",
+  title: {
+    default:
+      "Scrap Buyers in Chennai | JJ Scrapbuyers – Copper, Iron, AC, Battery Scrap",
+    template: "%s | JJ Scrapbuyers",
+  },
+
   description:
-    "JJ Scrap Buyers is a trusted scrap buyer in Chennai dealing in metal scrap, old batteries, AC units, and electrical scrap. Doorstep pickup, transparent weighing, and best prices guaranteed.",
+    "JJ Scrapbuyers is a trusted scrap buyer in Chennai dealing in iron, steel, copper, aluminium, AC, battery and electrical scrap. Free doorstep pickup with instant payment.",
 
   keywords: [
     // Core
@@ -65,19 +71,33 @@ export const metadata = {
     "kabadiwala near me",
     "raddi wala Chennai",
   ],
+  metadataBase: new URL("https://jjscrapbuyers.com"),
 
-  authors: [{ name: "JJ Scrap Buyers" }],
-  creator: "JJ Scrap Buyers",
+  alternates: {
+    canonical: "/",
+  },
 
   robots: {
     index: true,
     follow: true,
   },
 
-  metadataBase: new URL("https://jjscrapbuyers.com"),
+  openGraph: {
+    title:
+      "JJ Scrapbuyers – Best Scrap Buyers in Chennai with Doorstep Pickup",
+    description:
+      "Sell your scrap at best price in Chennai. We buy iron, copper, aluminium, AC, batteries and more with instant payment.",
+    url: "https://jjscrapbuyers.com",
+    siteName: "JJ Scrapbuyers",
+    locale: "en_IN",
+    type: "website",
+  },
 
-  alternates: {
-    canonical: "https://jjscrapbuyers.com",
+  twitter: {
+    card: "summary_large_image",
+    title: "JJ Scrapbuyers Chennai",
+    description:
+      "Trusted scrap buyers in Chennai offering best prices and doorstep pickup.",
   },
 
   icons: {
@@ -89,6 +109,36 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${outfit.variable}`}>
       <body>
+        {/* 🔥 SCHEMA MARKUP (VERY IMPORTANT) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "JJ Scrapbuyers",
+              image: "https://jjscrapbuyers.com/logo.png",
+              url: "https://jjscrapbuyers.com",
+              telephone: "+919789075963",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Chennai",
+                addressRegion: "Tamil Nadu",
+                addressCountry: "IN",
+              },
+              areaServed: "Chennai",
+              serviceType: [
+                "Metal Scrap Buying",
+                "Battery Scrap Buying",
+                "AC Scrap Buying",
+                "Electrical Scrap Buying",
+              ],
+              description:
+                "JJ Scrapbuyers is a leading scrap buyer in Chennai offering doorstep pickup and best prices for all types of scrap including iron, copper, aluminium, AC, batteries and electrical scrap.",
+            }),
+          }}
+        />
+
         {children}
         <WhatsAppButton />
         <CallButton />

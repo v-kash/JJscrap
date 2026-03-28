@@ -12,6 +12,7 @@ const SERVICES = [
     points: ["Factory clearance", "Machinery scrap", "Bulk metal pickup"],
     icon: Factory,
     img: "/services/industrial.jpg",
+    alt: "Industrial scrap buyers in Chennai factory clearance",
   },
   {
     title: "Household Scrap",
@@ -19,6 +20,7 @@ const SERVICES = [
     points: ["Old appliances", "Metal furniture", "Home clearance"],
     icon: Home,
     img: "/services/household.jpg",
+    alt: "Industrial scrap buyers in Chennai factory clearance",
   },
   {
     title: "All Metal Scrap",
@@ -26,6 +28,7 @@ const SERVICES = [
     points: ["Iron & Steel", "Copper & Aluminium", "Brass & SS"],
     icon: Recycle,
     img: "/services/metals.jpg",
+    alt: "Industrial scrap buyers in Chennai factory clearance",
   },
   {
     title: "Doorstep Pickup",
@@ -33,6 +36,7 @@ const SERVICES = [
     points: ["Same-day service", "No hidden charges", "UPI / Cash"],
     icon: Truck,
     img: "/doorpickup.jpg",
+    alt: "Industrial scrap buyers in Chennai factory clearance",
   },
 ];
 
@@ -108,7 +112,13 @@ export default function PremiumTabsInsane() {
         ref={revealRef}
         id="services"
         className="bg-[#f2f0e6] py-12 sm:py-14 lg:py-16 border-t border-[#8b004b]/10"
+         aria-label="Scrap buying services in Chennai including industrial, household and metal scrap"
       >
+        <p className="sr-only">
+          JJ Scrapbuyers provides scrap buying services in Chennai including
+          iron, steel, copper, aluminium, AC, batteries and electrical scrap
+          with doorstep pickup and instant payment.
+        </p>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* LEFT */}
           <div>
@@ -125,6 +135,7 @@ export default function PremiumTabsInsane() {
               data-d="2"
               className="font-fraunces text-[28px] sm:text-[34px] lg:text-[40px] font-light text-[#1a0010] mb-8"
             >
+              <span className="sr-only">Scrap Buying Services in Chennai</span>
               What We Offer
             </h2>
 
@@ -225,7 +236,7 @@ export default function PremiumTabsInsane() {
                         >
                           <Image
                             src={s.img}
-                            alt="service"
+                            alt={s.alt}
                             fill
                             className="object-cover"
                           />
