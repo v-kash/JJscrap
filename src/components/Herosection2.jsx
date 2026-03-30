@@ -51,10 +51,10 @@ const STATS = [
 
 // 4 slider images — update paths to match your /public folder
 const SLIDES = [
-  { src: "/hero10.jpg", alt: "Scrap metal yard Chennai" },
-  { src: "/hero21.jpg", alt: "Metal scrap collection Chennai" },
-  { src: "/hero23.jpg", alt: "Industrial scrap buyers Chennai" },
-  { src: "/hero24.jpg", alt: "Copper aluminium scrap Chennai" },
+  { src: "/hero3.jpeg", alt: "Scrap metal yard Chennai" },
+  { src: "/hero2.jpeg", alt: "Metal scrap collection Chennai" },
+  { src: "/hero1.jpeg", alt: "Industrial scrap buyers Chennai" },
+  { src: "/hero4.jpeg", alt: "Copper aluminium scrap Chennai" },
 ];
 export default function HeroSection() {
   const [mobileOpen, setMobileOpen] = useState(false);

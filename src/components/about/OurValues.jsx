@@ -44,7 +44,7 @@ imgAlt: "Transparent scrap buying service in Chennai with honest pricing"  },
     ),
     title: "Speed as Respect",
     desc: "Your time matters. Same-day service, instant payment, and fast responses aren't perks — they're our baseline. We show up when we say we will.",
-    img: "/delivery3.jpg",
+    img: "/delivery4.jpg",
 imgAlt: "Fast scrap pickup and instant payment service Chennai"  },
   {
     tag: "LEGACY",

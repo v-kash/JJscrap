@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const STORY_IMAGE =
-  "/hero-scarp2.jpg";
+  "/hero-scarp3.jpg";
 
 const TIMELINE = [
   {

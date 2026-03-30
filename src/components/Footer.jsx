@@ -72,7 +72,7 @@ export default function Footer() {
             {/* BRAND */}
             <div>
               <Image
-                src="/finalfooter.png"
+                src="/finallogo.png"
                 alt="Logo"
                 width={100}
                 height={60}
