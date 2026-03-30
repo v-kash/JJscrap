@@ -55,6 +55,7 @@ const SLIDES = [
   { src: "/hero2.jpeg", alt: "Metal scrap collection Chennai" },
   { src: "/hero1.jpeg", alt: "Industrial scrap buyers Chennai" },
   { src: "/hero4.jpeg", alt: "Copper aluminium scrap Chennai" },
+  { src: "/hero7.png", alt: "Copper scrap Chennai" },
 ];
 export default function HeroSection() {
   const [mobileOpen, setMobileOpen] = useState(false);
