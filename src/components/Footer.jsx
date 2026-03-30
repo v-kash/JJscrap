@@ -172,7 +172,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6 lg:hidden">
             {/* Brand */}
             <div className="mobile-section">
-              <Image src="/finalfooter.png" alt="Logo" width={90} height={54} />
+              <Image src="/finallogo.png" alt="Logo" width={90} height={54} />
               <p
                 className="text-[12px] mt-3 leading-[1.8]"
                 style={{ color: "rgba(242,240,230,0.55)" }}
